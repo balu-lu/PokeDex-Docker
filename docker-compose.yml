@@ -1,9 +1,12 @@
-version: '3.8'
-
 services:
   pokedex:
     build: .
+    container_name: pokedex-api
     ports:
       - "8000:8000"
     volumes:
       - ./PokeDex:/app/PokeDex
+    environment:
+      PYTHONUNBUFFERED: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      APP_ENV: "development"
